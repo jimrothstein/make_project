@@ -1,0 +1,15 @@
+all:
+	@echo Build all
+
+clean:
+	@echo Clean all
+
+words.txt:
+	Rscript -e 'download.file("https://svnweb.freebsd.org/base/head/share/dict/web2?view=co", destfile = "words.txt", quiet = TRUE)'
+
+info:
+	@echo  $(shell whoami)
+	@echo $(shell arch)
+
+histogram.tsv: 044_make_histogram.R words.txt
+	Rscript $<

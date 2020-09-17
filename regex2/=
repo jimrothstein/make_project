@@ -1,0 +1,33 @@
+# #################
+#	makefile	
+#  /home/jim/code/make_project/regex2
+#
+# 	Mon Jan 21 14:10:49 PST 2019
+#
+#   echo ""   | grep -E
+# #################
+#
+#
+str="x xx xxa xxx xxxx"
+file= ~/code/make_project/regex2/row_words
+SHELL:=/bin/zsh
+
+0:	
+	@echo "$$SHELL"
+1:
+	@echo ${str}  | grep -E --color=always "x{2}" > junk  
+
+2:
+	grep -E x{2} "x xx xxa xxx xxxx"
+3:
+	@echo "x xx xxa xxx xxxx"  | grep -E --color=auto "x{2}"
+
+
+# --------
+#  no color
+#  -------
+#
+4:	
+	cat $(file)
+
+#cat $file |	grep -E [!ao]w 
