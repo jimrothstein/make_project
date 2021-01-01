@@ -36,10 +36,21 @@ largest:
 	# largest directories, human readable
 	du -ah ~ | sort -rh | head -10
 
+regular_files:
+	# . regular files, no dir
+	# -U  do not sort
+	#  O  sort by size
+	ls -ldU -- **/*(.OL)
+
 largest_files: 
 	# zsh:  ls -lh ~/**/*(.Lm+20)
 	# list files, size > 20M
 	ls -lh ~/**/*(.Lm+20)
+
+largest_6:
+	# O = reverse order, 
+	# D =
+	ls -ldh -- **/*(DOL[1,6])
 
 list_google_files:
 	ls /var/host/media/fuse/drivefs-34a039d82ac00e8c8d62cd30042f3741/root/ | less

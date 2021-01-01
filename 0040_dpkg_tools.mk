@@ -79,6 +79,10 @@ dpkg_selections:
 dpkg_selections_hold:
 	dpkg --get-selections | grep 'hold'
 
+# any old linux-images? (No, returns empty)
+dpkg_linux:
+	dpkg -l | grep linux-image 
+
 # ---- soap box ----
 #
 # from github https://github.com/unix-tools/tutorial-makefiles
