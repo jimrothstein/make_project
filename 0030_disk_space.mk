@@ -25,6 +25,7 @@ storage:
 disk_use:
 	df -kh --total
 
+# maybe be SLOW
 # each dir (skip proc etc)
 storage_total:
 	sudo du -hx --total / | sort -n
