@@ -6,6 +6,7 @@
 #
 #
 SHELL := /bin/zsh
+the_dir = /var/host/media/fuse/drivefs-34a039d82ac00e8c8d62cd30042f3741/root/
 
 .PHONY:   version fdisk mount lsblk blkid fstab
 
@@ -36,6 +37,14 @@ storage_total:
 largest:
 	# largest directories, human readable
 	du -ah ~ | sort -rh | head -10
+
+largest_google_drive:
+	# directories
+	du -ah $(the_dir) | sort -rh | head -10
+
+largest_g_drive:
+	# files
+	ls -lh -- $(the_dir)**/*(DOL[1,20])
 
 regular_files:
 	# . regular files, no dir
