@@ -35,9 +35,11 @@ storage_total:
 # -a each file (excellent)
 # ==========================
 largest:
-	# largest directories, human readable
+    # *** USE
+	# largest directories, human readable, replace ~ with specific directory
 	du -ah ~ | sort -rh | head -10
 
+# fails
 largest_google_drive:
 	# directories
 	du -ah $(the_dir) | sort -rh | head -10
