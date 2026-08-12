@@ -11,6 +11,7 @@ version:
 	echo $(lsb_release -a)
 	lsb_release -a
 
+# lists partitions, but not best format
 fdisk:
 	sudo fdisk -l
 

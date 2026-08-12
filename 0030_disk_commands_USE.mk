@@ -17,11 +17,17 @@ version:
 	@echo $(lsb_release -a)
 #	lsb_release -a
 #
+# shows partition, but not really useful display
 fdisk:
-	fdisk -l
+	sudo fdisk -l
 
 storage:
 	sudo du 
+
+## or du -h | sort -hr
+## available space
+basic_use:
+    df -h
 
 disk_use:
 	df -kh --total
@@ -93,3 +99,7 @@ empty_files2:
 
 empty_files3:
 	sudo find ~ -empty -type f -print
+
+## linux images, print column 2
+images:
+    dpkg -l | grep linux-image | awk '{print$2}'
