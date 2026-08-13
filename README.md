@@ -1,3 +1,8 @@
+---
+title:
+date:
+description:
+---
 #       TODO
 #       6JUNE203
 #       salvage, document many useful zsh/linux commands 
