@@ -3,7 +3,7 @@
 # USING ZSH GLOB Quantifiers
 # ============================
 #
-# 0225_ls_grep_examples.mk
+# 0225_ls_grep_GLOB_QUANTIFIERS.mk
 # COLLECT  ls, grep examples
 # USING ZSH GLOB Quantifiers
 # (or is it 'modifiers' ?)
@@ -17,7 +17,8 @@
 SHELL:=/bin/zsh
 mp3_dir=~/Downloads/mp3/from_youtube
 
-.PHONY: all clean
+.PHONY: all clean check simple hidden print list1 list2 \
+  grep1_quotes  grep1_no_quotes  grep3 find1 files_only
 
 all:	1.txt 2.txt 3.txt
 
@@ -39,9 +40,9 @@ print:
 	print -rl -- **/*(.OL)
 
 
-# =======================
-# OLDER,   Begins HERE:
-# =======================
+# ========================
+#  CLASSIC LS & GREP
+# ========================
 
 list1:
 	# WHY?  ll does not work
