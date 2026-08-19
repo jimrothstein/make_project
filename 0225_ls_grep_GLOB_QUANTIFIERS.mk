@@ -26,6 +26,9 @@ check:
 	@echo "$$SHELL"
 	@echo $(.SHELLSTATUS)
 
+# ===============
+#  These use zsh features
+# ===============
 simple:
 	# files only, desc, 
 	ls -ldU -- **/*(.OL)  
