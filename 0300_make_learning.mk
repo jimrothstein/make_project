@@ -1,3 +1,41 @@
+# 0300_make_learning.mk
+#
+# MAKE learning: variables, echo, recursion, dates, archive
+# (merged from 0050_echo_examples.mk + 0200_dates_recurive.mk)
+#
+# ========================
+#  ECHO EXAMPLES
+# ========================
+# variables first
+FOO="hello"
+
+# target not files
+.PHONY: test clean all
+
+# 1st target is all, and list its dependencies
+all: clean archive.tar archive.tar.gz
+
+test:
+	@echo "FOO1 = " $(FOO)		# hello
+	@echo "FOO2 = " $FOO		# OO
+	
+
+archive.tar:	makefile clean		# clean old first
+	tar -cvf archive.tar *
+	
+archive.tar.gz: 	archive.tar
+		@gzip archive.tar
+
+clean:	
+		@rm -f archive.tar.gz # -f = no error if no file
+
+
+###### experimental
+
+
+# ========================
+#  DATES, RECURSIVE VARS
+# ========================
 
 ## 0200_dates_recurive.mk
 
@@ -45,4 +83,3 @@ date:
 		@echo $(theDate)				# WED Sept 26 ....
 		@echo $(shell date +%Y%m%d)
 		@echo $(shell date +"%^a %d%b%Y")
-
