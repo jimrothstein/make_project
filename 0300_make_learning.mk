@@ -10,7 +10,7 @@
 FOO="hello"
 
 # target not files
-.PHONY: test clean all
+.PHONY: test clean all 1 2 manual begin date
 
 # 1st target is all, and list its dependencies
 all: clean archive.tar archive.tar.gz
@@ -18,11 +18,10 @@ all: clean archive.tar archive.tar.gz
 test:
 	@echo "FOO1 = " $(FOO)		# hello
 	@echo "FOO2 = " $FOO		# OO
-	
 
-archive.tar:	makefile clean		# clean old first
+archive.tar: clean
 	tar -cvf archive.tar *
-	
+
 archive.tar.gz: 	archive.tar
 		@gzip archive.tar
 
@@ -30,23 +29,13 @@ clean:
 		@rm -f archive.tar.gz # -f = no error if no file
 
 
-###### experimental
-
-
 # ========================
 #  DATES, RECURSIVE VARS
 # ========================
 
-## 0200_dates_recurive.mk
-
-########
-# PURPOSE: date practice, recursive variables
-# #####
-#
 ##	variables
 HELLO=world
 HELLO_WORLD=$(HELLO) world!				# world world
-
 
 ##	recursive variables
 foo	=	$(bar)							# bar unknown
